@@ -22,7 +22,7 @@ contract MyToken {
     string public token_Abbrv = "LMR"; //Our token has an abbreviation LMR
     uint public total_Supply = 0; //Initially the token supply will be 0 and it will increase as address are minted with these tokens
 
-    string public A_Transaction_state;    
+    string public A_Transaction_state; //will tell us that whether our transaction was success or not and if not then why
 
 
     // mapping variable here

@@ -22,7 +22,7 @@ contract MyToken {
     string public token_Abbrv = "LMR"; //Our token has an abbreviation LMR
     uint public total_Supply = 0; //Initially the token supply will be 0 and it will increase as address are minted with these tokens
 
-    address[] public owners; //This is an array which will keep the track of addresses of owners
+    string public A_Transaction_state;    
 
 
     // mapping variable here
@@ -30,7 +30,7 @@ contract MyToken {
                                                   they have in their respective accounts*/
 
     // mint function
-    function mintToken(address _owner, uint _amount) public returns (string memory)
+    function mintToken(address _owner, uint _amount) public
     {
         //first we will increase the total supply to reflect it in the overall changes
         total_Supply += _amount; 
@@ -38,13 +38,12 @@ contract MyToken {
         //now we will increase or add the amount in the account balance of the respective owner
         ownerBalance[_owner] += _amount;  
 
-        return "SUCCESSFULLY MINTED THE TOKENS"; 
+        A_Transaction_state = "SUCCESSFULLY MINTED THE TOKENS"; 
     }
 
     // burn function
     function burnToken
-    (address _owner, uint _amount) public returns (string memory) /* we are using a return string to display whether the
-                                                                the transaction is successful or not */
+    (address _owner, uint _amount) public
     {
         //first let us check that the amount to be burned is available in owner's account or not
         if(ownerBalance[_owner] > _amount)
@@ -55,11 +54,11 @@ contract MyToken {
         //now we will decrease or burn the amount in the account balance of the respective owner
         ownerBalance[_owner] -= _amount;
 
-        return "SUCCESSFULLY BURNED"; // IF TRANSACTION IS SUCCESS
+        A_Transaction_state = "SUCCESSFULLY BURNED"; // IF TRANSACTION IS SUCCESS
         }
         else
         {
-            return "INSUFFICIENT BALANCE"; // IF TRANSACTION FAILS
+            A_Transaction_state = "INSUFFICIENT BALANCE"; // IF TRANSACTION FAILS
         }   
     }
 

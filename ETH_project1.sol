@@ -46,7 +46,7 @@ contract MyToken {
     (address _owner, uint _amount) public
     {
         //first let us check that the amount to be burned is available in owner's account or not
-        if(ownerBalance[_owner] > _amount)
+        if(ownerBalance[_owner] >= _amount)
         {
         //first we will decrease the total supply to reflect it in the overall changes
         total_Supply -= _amount; 
